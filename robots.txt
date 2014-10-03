@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://qucaizhi.github.io/sitemap.xml 
+Sitemap: http://qucaizhi.me/sitemap.xml 
