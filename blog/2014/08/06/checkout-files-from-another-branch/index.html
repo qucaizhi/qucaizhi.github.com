@@ -1,0 +1,176 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Git 从其它分支提取指定文件 - wit.qu</title>
+	<meta name="author" content="wit.qu">
+
+	
+	<meta name="description" content="Git 从其它分支提取指定文件 在 Git 多个分支之间，使用 merge 或者 rebase 可以合并分支内容，非常方便，但是在特殊情况下，我需要从另外一个分支拉取一个或者某个指定的文件(夹)，手动 copy 代码当然可以，但是身为大程序猿，何须做这么接地气的事情？使用 git &hellip;">
+	
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="wit.qu" type="application/atom+xml">
+	
+	<link rel="canonical" href="http://qucaizhi.github.io/blog/2014/08/06/checkout-files-from-another-branch/">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="http://libs.useso.com/js/jquery/1.7.2/jquery.min.js"></script>
+	<link href='http://fonts.useso.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
+	<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.useso.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.useso.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+			<header id="header" class="inner"><div class="profilepic">	
+	<script src="/javascripts/md5.js"></script>
+	<script type="text/javascript">
+		document.write("<img src='/images/choice.jpg' alt='Profile Picture' style='width: 160px;' />");
+	</script>
+</div>
+<h1><a href="/">wit.qu</a></h1>
+<p class="subtitle">It's not lonely, is the choice.</p>
+<nav id="main-nav"><ul class="main-navigation">
+  <li><a href="/">博客 · Blog</a></li>
+  <li><a href="/blog/archives">归档 · Archives</a></li>
+  <li><a href="/categories">分类 · Categories</a></li>
+  <li><a href="/about">关于 · About</a></li>
+</ul>
+</nav>
+<nav id="sub-nav">
+	<div class="social">
+		
+		<a class="weibo" href="http://www.weibo.com/2653017541" title="Weibo">Weibo</a>
+		
+		
+		
+		
+		
+		<a class="github" href="https://github.com/qucaizhi" title="GitHub">GitHub</a>
+		
+		
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+</nav>
+<p class="subtitle">You know ultimately it comes down to taste, it comes down to trying to expose yourself to the best things that humans have done, and try to bring these things into what you are doing.</p>
+<p class="subtitle" style="text-align: right;">-- Steve Jobs</p>
+
+</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			
+				
+			
+			<div class="mid-col-container">
+				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+	<h1 class="title" itemprop="name">Git 从其它分支提取指定文件</h1>
+	<div class="entry-content" itemprop="articleBody"><p>在 Git 多个分支之间，使用 <strong>merge</strong> 或者 <strong>rebase</strong> 可以合并分支内容，非常方便，但是在特殊情况下，我需要从另外一个分支拉取一个或者某个指定的文件(夹)，手动 copy 代码当然可以，但是身为大程序猿，何须做这么接地气的事情？使用 <code>git checkout</code> 就可以轻松做到。</p>
+
+<h2>应用场景</h2>
+
+<h3>A</h3>
+
+<p>我在 feature/A 分支下工作，在即将完成的时候，接到 PM 老爷的通知，这个功能要大改，基本就报废了。重新开一个 branch ，发现新需求下，model 定义还是一样的，而我只需要 model 下那几个文件。</p>
+
+<!--  more  -->
+
+
+<h3>B</h3>
+
+<p>前几日用 NDK ，编译 .so 文件的时候，不知道什么问题，将 armeabi 目录下其它的 .so 文件都删除掉了，看到 git commit message 里提示删除，但是项目跑通没问题，当时就没在意。过了两天测试发现地图老是 crash ，发现了原因那就好办了~</p>
+
+<p>不过万一其它分支也没有这个文件肿么办？不要紧，<code>git reset --hard [delete commit hashcode]</code> 历史回溯到那个删除的节点，然后 在那个节点 folk 一个新分支，再将当前分支更新 <code>git reset  --hard origin/[remote branch]</code> ，在按照上面提到的思路执行就 ok 了。</p>
+
+<h2>从其它分支提取文件</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git checkout [branch] -- [file name]</span></code></pre></td></tr></table></div></figure>
+
+</div>
+
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style addthis_16x16_style">
+	
+	<a class="addthis_button_sinaweibo"></a>
+	
+	
+	
+	
+	
+	<a class="addthis_button_compact"></a>
+	<a class="addthis_counter addthis_bubble_style"></a>
+	</div>
+	<!--
+	<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53e2311a5f56ac95"></script>
+	-->
+	<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid="></script>
+</div>
+
+
+
+
+
+  <section>
+    <!--<h1>Comments</h1>-->
+    <div id="comments" aria-live="polite"><!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread"></div>
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"qucaizhi"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+<!-- Duoshuo Comment END --></div>
+  </section>
+</div>
+			</div>
+			<footer id="footer" class="inner"><p>
+  Copyright &copy; 2014 - wit.qu -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+			<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+
+
+
+
+
+		</div>
+	</div>
+</body>
+</html>
