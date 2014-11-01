@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[wit.qu]]></title>
-  <link href="http://qucaizhi.me/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Android | wit.qu]]></title>
+  <link href="http://qucaizhi.me/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://qucaizhi.me/"/>
   <updated>2014-11-01T19:08:22+08:00</updated>
   <id>http://qucaizhi.me/</id>
@@ -96,55 +96,6 @@
 <p>4、将开机文件拷贝到<code>/system/media/</code>或者<code>/data/local/</code>目录下，长按拷贝过来的文件，弹出一个对话框，找到一个名为Permissions的选项点击打开。按照图三点击设置即可。权限设置错误可能导致无法开机哦！</p>
 
 <p><img src="./images/blog/permissions.png" alt="" /></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[手动修改Win7登录界面背景]]></title>
-    <link href="http://qucaizhi.me/blog/2014/10/16/modify-win7-login-screen-background/"/>
-    <updated>2014-10-16T21:50:51+08:00</updated>
-    <id>http://qucaizhi.me/blog/2014/10/16/modify-win7-login-screen-background</id>
-    <content type="html"><![CDATA[<p>在 Windows 7 中，我们可以利用系统对 OEM 厂商特性的支持来比较方便和快捷的自定义系统的登录界面背景，在这个过程中，用户需要做的仅仅是修改一处注册表项，复制一张图片即可。</p>
-
-<h2>一、修改注册表</h2>
-
-<p>按<code>win+R</code>快捷键打开运行界面，在上面的对话框中输入&#8221;regedit”；接着单击“确定”打开注册表编辑器。
-再依次展开注册表里的 ：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'> HKEY_LOCAL_MACHINESOFTWARE\Microsoft\Windows\CurrentVersion\</span></code></pre></td></tr></table></div></figure>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Authentication\LogonUI\Background</span></code></pre></td></tr></table></div></figure>
-
-
-<p>点击“Background”在窗口右侧找到“OEMBackground”并双击，然后在弹出窗口中将值修改为数字“1”，点击确定。</p>
-
-<blockquote><p>注：如果以上注册表项不存在，请创建名为 OEMBackground 的 DWORD 32 的注册表键。其键值为 1 时意为启用 OEM 背景，也就是我们的自定义背景；其键值为 0 时为禁用。</p></blockquote>
-
-<h2>二、复制背景到对应路径</h2>
-
-<p>现在，关闭注册表编辑器，在资源管理器中定位至</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>C:\Windows\System32\oobe\</span></code></pre></td></tr></table></div></figure>
-
-
-<p>新建文件夹<code>info</code>，再在<code>info</code>文件夹中新建文件夹<code>backgrounds</code>，最后将名称为<code>BackgroundDefault.jpg</code>（注意jpg是文件格式，不是文件名）的图片复制到<code>backgrounds</code>文件夹中。</p>
-
-<p><code>BackgroundDefault.jpg</code>文件的要求：</p>
-
-<ul>
-<li>JPG 格式</li>
-<li>文件大小不能超过 256 KB</li>
-<li>图片的分辨率和电脑所使用的分辨率一致</li>
-</ul>
-
-
-<h2>三、Enjoy</h2>
-
-<p>不需要重启计算机，用<code>Win+L</code>测试一下设置的成果吧。</p>
 ]]></content>
   </entry>
   
