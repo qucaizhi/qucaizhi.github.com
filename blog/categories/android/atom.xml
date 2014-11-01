@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Android | wit.qu]]></title>
   <link href="http://qucaizhi.me/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://qucaizhi.me/"/>
-  <updated>2014-11-01T19:08:22+08:00</updated>
+  <updated>2014-11-01T19:33:00+08:00</updated>
   <id>http://qucaizhi.me/</id>
   <author>
     <name><![CDATA[wit.qu]]></name>
@@ -20,7 +20,7 @@
     <id>http://qucaizhi.me/blog/2014/11/01/modify-android-boot-animation</id>
     <content type="html"><![CDATA[<p>Android开机动画有两种修改方法，android 2.0及之后，使用bootanimation程序显示开机画面，如需修改开机画面，不用修改代码，只需按格式要求做bootanimation.zip包，放在系统的<code>/system/media/</code>目录中，或<code>/data/local/</code>目录中即可，两个目录下都存在时，优先使用<code>/data/local/</code>下的。android 2.0之前，则需要修改源码。本文主要介绍android 2.0及之后的修改方法。</p>
 
-<p><img src="./images/blog/android.jpg" alt="" /></p>
+<p><img src="/images/blog/android.jpg" alt="android" /></p>
 
 <h2>一、开机动画文件介绍</h2>
 
@@ -60,9 +60,9 @@
 
 <p>如果拿到一个bootanimation.zip文件，我们该如何去修改它呢？</p>
 
-<p>1、直接解压，修改相关文件后，压缩就OK了？ No, No,No，本人亲自试过，这种方式得到的开机动画文件，修改的部分是不播放的（修改的部分黑屏）；</p>
+<p>1、直接解压，修改相关文件后，压缩就OK了？ No, No, No，本人亲自试过，这种方式得到的开机动画文件，修改的部分是不播放的（修改的部分黑屏）；</p>
 
-<p>2、不解压，直接修改压缩文件里面的内容？No, No,No，效果同上</p>
+<p>2、不解压，直接修改压缩文件里面的内容？No, No, No，效果同上</p>
 
 <p>3、正确的方式：</p>
 
@@ -91,11 +91,11 @@
 
 <p>2、安装一个名为Root Explorer的软件，并且在首次启动的时候给予ROOT权限。</p>
 
-<p>3、进入<code>/system/media/</code>或者<code>/data/local/</code>目录，并启用该目录的“读写”权限，进入该目录直接删除<code>bootanimation.zip</code>文件即可。</p>
+<p>3、进入<code>/system/media/</code>或者<code>/data/local/</code>目录，并启用该目录的<strong>“读写”</strong>权限，进入该目录直接删除<code>bootanimation.zip</code>文件即可。</p>
 
 <p>4、将开机文件拷贝到<code>/system/media/</code>或者<code>/data/local/</code>目录下，长按拷贝过来的文件，弹出一个对话框，找到一个名为Permissions的选项点击打开。按照图三点击设置即可。权限设置错误可能导致无法开机哦！</p>
 
-<p><img src="./images/blog/permissions.png" alt="" /></p>
+<p><img src="/images/blog/permissions.jpg" alt="权限设置" /></p>
 ]]></content>
   </entry>
   
